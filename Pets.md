@@ -1,7 +1,7 @@
 derived from http://tpolecat.github.io/2015/04/29/f-bounds.html
 
 # Problems
-< for any expression x with some type A <: Pet, ensure that x.renamed(...) also has type A at compile time.
+> for any expression x with some type A <: Pet, ensure that x.renamed(...) also has type A at compile time.
 
 # Subtyping solution
 
