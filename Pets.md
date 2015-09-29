@@ -194,7 +194,13 @@ trait Pet[A] {
   def renamed(a: A, newName: String): A
 }
 
+// pimp Pet to Fish implicits...
 case class Fish(name: String, age: Int)
 
+// pimp Pet to Kitty implicits...
 case class Kitty(name: String, color: String)
 ```
+
+But now how do we store instances of `Fish` and `Kitty` in one collections? `Seq[Fish]` will not work as `Fish` and `Kitty` are not a subtype of `Pet`
+
+Answer: shapeless HMap/HList
