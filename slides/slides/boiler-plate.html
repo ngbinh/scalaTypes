@@ -1,0 +1,21 @@
+<h2>Boiler plate</h2>
+
+<pre>
+  <code data-trim>
+@implicitNotFound("No member of type class Pet found for type ${A}")
+trait Pet[A] {
+  def name(a: A): String
+  def renamed(a: A, newName: String): A
+}
+
+case class Fish(name: String, age: Int)
+implicit val FishPet = new Pet[Fish] {
+  def name(a: Fish) = a.name
+  def renamed(a: Fish, newName: String) = a.copy(name = newName)
+}
+implicit class PetOps[A](a: A)(implicit ev: Pet[A]) {
+  def name = ev.name(a)
+  def renamed(newName: String): A = ev.renamed(a, newName)
+}
+</code>
+</pre>

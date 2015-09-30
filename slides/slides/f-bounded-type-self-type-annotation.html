@@ -1,0 +1,12 @@
+<h2>F-bounded type: self-type annotation</h2>
+
+<pre>
+  <code data-trim>
+trait Pet[A <: Pet[A]] {  this: A => // self-type
+  def name: String
+  def renamed(newName: String): A // note this return type
+}
+  </code>
+</pre>
+
+and all is well again!

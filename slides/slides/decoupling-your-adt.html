@@ -1,0 +1,50 @@
+<h2>Decoupling your ADT</h2>
+
+<pre>
+  <code data-trim>
+sealed trait Expression
+case class Number(value: Int) extends Expression
+case class Plus(lhs: Expression, rhs: Expression) extends Expression
+case class Minus(lhs: Expression, rhs: Expression) extends Expression
+
+object ExpressionEvaluator {
+  def value(expression: Expression): Int = expression match {
+    case Number(value) => value
+    case Plus(lhs, rhs) => value(lhs) + value(rhs)
+    case Minus(lhs, rhs) => value(lhs) - value(rhs)
+  }
+}
+
+// ad hoc polymorphism
+trait Value[T] {
+  def value(t: T): Valueable
+}
+
+object Calculator {
+  def calculate(v: Valueable): Int = v.value
+}
+
+object CalculatorEx {
+  def calculate[T : Value](t: T): Int =
+    Calculator.calculate(implicitly[Value[T]].value(t))
+}
+
+implicit val number2Value = new Value[Number] {
+  def value(n: Number): Valueable = new Valueable {
+    override def value: Int = n.value
+  }
+}
+
+implicit val plus2Value = new Value[Plus] {
+  def value(p: Plus): Valueable = new Valueable {
+    override def value: Int = p.lhs.value + p.rhs.value
+  }
+}
+
+implicit val minus2Value = new Value[Minus] {
+  def value(m: Minus): Valueable = new Valueable {
+    override def value: Int = m.lhs.value - m.rhs.value
+  }
+}
+  </code>
+</pre>

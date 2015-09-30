@@ -1,0 +1,11 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Sub typing, F-Bounded and type class!",
+    "packageVersion": "0.0.0",
+    "revealTheme": "solarized",
+    "useSass": false,
+    "deployToGithubPages": true,
+    "githubUsername": "ngbinh",
+    "githubRepository": "scalaTypes"
+  }
+}

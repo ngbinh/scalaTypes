@@ -1,0 +1,14 @@
+<h2>Or does it?</h2>
+
+<pre>
+  <code data-trim>
+class Mammal(val name: String) extends Pet[Mammal] {
+  def renamed(newName: String) = new Mammal(newName)
+}
+
+class Monkey(name: String) extends Mammal(name)
+// hmm, Monkey is a Pet[Mammal]?
+  </code>
+</pre>
+
+It's always feel like we are almost there (but possibly can never be)

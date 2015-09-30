@@ -1,0 +1,18 @@
+<h2>F-bounded type: derived classes</h2>
+
+<pre>
+  <code data-trim>
+// note the type argument
+case class Fish(name: String, age: Int) extends Pet[Fish] {
+    def renamed(newName: String) = copy(name = newName)
+}
+  </code>
+</pre>
+
+and all is well!
+<pre>
+  <code data-trim>
+val a = Fish("Jimmy", 2)
+val b = a.renamed("Bob")
+  </code>
+</pre>

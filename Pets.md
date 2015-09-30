@@ -204,3 +204,5 @@ case class Kitty(name: String, color: String)
 But now how do we store instances of `Fish` and `Kitty` in one collections? `Seq[Fish]` will not work as `Fish` and `Kitty` are not a subtype of `Pet`
 
 Answer: shapeless HMap/HList
+
+3.

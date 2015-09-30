@@ -1,0 +1,12 @@
+<h2>Sub-typing: problem 2</h2>
+
+Function to wrap over renamed
+
+<pre>
+  <code data-trim>
+def getMarry[A <: Pet](a: A): A = a.renamed("Mrs " + a.name)
+  </code>
+</pre>
+
+-> compilation error!
+=> too restricted!

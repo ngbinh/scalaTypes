@@ -1,0 +1,13 @@
+<h2>F-bounded type: restrict implementation return type</h2>
+
+<pre>
+  <code data-trim>
+case class Kitty(name: String, color: String) extends Pet[Fish] {
+  // oops. Kitty is Fish!
+  def renamed(newName: String): Fish = new Fish(newName, 42)
+}
+
+val k = Kitty("cat")
+k.renamed("Bob")
+  </code>
+</pre>

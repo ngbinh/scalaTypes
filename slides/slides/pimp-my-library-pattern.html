@@ -1,0 +1,15 @@
+<h2>Pimp my library pattern</h2>
+
+<pre>
+  <code data-trim>
+"Binh ".toAwesomeness
+
+class Awesomizer(string: String) {
+   def toAwesomeness = string + " is awesome"
+}
+
+implicit def awesomizeYoString(string: String) = new Awesomizer(string)
+
+"type class ".toAwesomeness
+  </code>
+</pre>
