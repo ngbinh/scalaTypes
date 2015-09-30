@@ -1,0 +1,13 @@
+<h2>Ad hoc polymorphism</h2>
+
+<p>any type A can act as a Pet, given an instance of Pet[A].</p>
+
+Base trait:
+<pre>
+  <code data-trim>
+trait Pet[A] {
+  def name(a: A): String
+  def renamed(a: A, newName: String): A
+}  </code>
+</pre>
+looks exactly like F-bounded

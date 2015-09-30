@@ -1,0 +1,13 @@
+<h2>Sub-typing: problem 1</h2>
+
+<p>lax constraint on implementation</p>
+
+<pre>
+  <code data-trim>
+case class Kitty(name: String, color: String) extends Pet {
+  def renamed(newName: String): Fish = new Fish(newName, 42) // oops
+}
+  </code>
+</pre>
+
+=> too much freedom!

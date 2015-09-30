@@ -1,0 +1,21 @@
+<h2>Boiler plate: use simulacrum</h2>
+
+<pre>
+  <code data-trim>
+load.plugin.ivy("org.scalamacros" % "paradise_2.11.7" % "2.1.0-M5")
+load.ivy("com.github.mpilquist" %% "simulacrum" % "0.4.0")
+
+import simulacrum._
+
+@typeclass trait Semigroup[A] {
+  @op("|+|") def append(x: A, y: A): A
+}
+
+implicit val semigroupInt: Semigroup[Int] = new Semigroup[Int] {
+  def append(x: Int, y: Int) = x + y
+}
+
+import Semigroup.ops._
+1 |+| 2 // 3
+</code>
+</pre>

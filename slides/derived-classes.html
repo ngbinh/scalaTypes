@@ -1,0 +1,19 @@
+<h2>derived classes</h2>
+
+<pre>
+  <code data-trim>
+case class Fish(name: String, age: Int)
+
+implicit val FishPet = new Pet[Fish] {
+  def name(a: Fish) = a.name
+  def renamed(a: Fish, newName: String) = a.copy(name = newName)
+}
+
+Fish("Bob", 42).renamed("Steve")
+
+implicit class PetOps[A](a: A)(implicit ev: Pet[A]) {
+  def name = ev.name(a)
+  def renamed(newName: String): A = ev.renamed(a, newName)
+}
+</code>
+</pre>

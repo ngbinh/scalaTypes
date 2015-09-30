@@ -1,0 +1,20 @@
+<h2>Sub-typing: derived classes</h2>
+
+<pre>
+  <code data-trim>
+case class Fish(name: String, age: Int) extends Pet {
+  def renamed(newName: String): Fish = copy(name = newName)
+}
+
+case class Kitty(name: String, color: String) extends Pet {
+  def renamed(newName: String):Kitty = copy(name = newName)
+}
+  </code>
+</pre>
+
+<pre>
+  <code data-trim>
+val a = Fish("Jimmy", 2)
+val b = a.renamed("Bob")
+  </code>
+</pre>
